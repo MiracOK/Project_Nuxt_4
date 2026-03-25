@@ -1,0 +1,7 @@
+CREATE DATABASE IF NOT EXISTS nuxt_beers;
+USE nuxt_beers;
+
+CREATE TABLE IF NOT EXISTS favorite_beers (
+    beer_id VARCHAR(255) PRIMARY KEY,
+    favorite_date DATETIME DEFAULT CURRENT_TIMESTAMP
+);

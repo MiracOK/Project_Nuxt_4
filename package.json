@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "mysql2": "^3.20.0",
+    "nuxt-server-utils": "^0.0.7"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.42"
+  }
+}
