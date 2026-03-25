@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: nuxt_beers_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nuxt_beers
+    ports:
+      - "3306:3306"
+    volumes:
+      # On injecte le fichier SQL pour qu'il soit exécuté au démarrage 
+      # du conteneur (si la base est vide)
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql

@@ -8,10 +8,10 @@ import bluebird from 'bluebird'
  */
 export const getDbConnection = async () => {
     return await mysql.createConnection({
-        host: 'localhost',
+        host: 'localhost', // Depuis la machine, c'est localhost (via port 3306 exposé)
         user: 'root',
-        password: '', // Modifie si ton mdp par défaut n'est pas vide (ex: 'root')
-        database: 'nuxt_beers', // Nom de notre base
+        password: 'root', // Le mot de passe indiqué dans notre docker-compose
+        database: 'nuxt_beers', // Le nom initialisé par docker-compose
         Promise: bluebird,
     })
 }
