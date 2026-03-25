@@ -1,8 +1,15 @@
-import { getDbConnection } from '../utils/db'
+import mysql from 'mysql2/promise'
+import bluebird from 'bluebird'
 
 export default defineEventHandler(async (event) => {
-    // Connexion à la base de données
-    const connection = await getDbConnection();
+    // Connexion à la base de données directement dans la fonction
+    const connection = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'nuxt_beers',
+        Promise: bluebird,
+    })
     
     try {
         // Exécution de la requête, et récupération des résultats

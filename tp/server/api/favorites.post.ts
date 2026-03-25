@@ -1,4 +1,5 @@
-import { getDbConnection } from '../utils/db'
+import mysql from 'mysql2/promise'
+import bluebird from 'bluebird'
 
 export default defineEventHandler(async (event) => {
     // Récupération de l'id depuis le corps (body) de la requête
@@ -12,7 +13,13 @@ export default defineEventHandler(async (event) => {
         });
     }
 
-    const connection = await getDbConnection();
+    const connection = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'nuxt_beers',
+        Promise: bluebird,
+    })
     
     try {
         // Insertion : si elle existe déjà on met juste à jour la date 

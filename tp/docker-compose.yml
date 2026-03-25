@@ -11,6 +11,4 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      # On injecte le fichier SQL pour qu'il soit exécuté au démarrage 
-      # du conteneur (si la base est vide)
       - ./database.sql:/docker-entrypoint-initdb.d/init.sql
